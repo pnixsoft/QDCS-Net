@@ -131,16 +131,12 @@ if __name__ == "__main__":
     print(SAE.summary())
     SAE.compile(optimizer='adadelta', loss='mse')
 
-    if args.learningrate== 0:
-        SAE.fit(train_x, train_x,
-                epochs=args.epochs,
-                batch_size=args.batchsize,
-                shuffle=True,validation_data=(test_x,test_x))
-    else:
-        SAE.fit(train_x, train_x,
-                epochs=args.epochs,
-                batch_size=args.batchsize,
-                shuffle=True,validation_data=(test_x,test_x))
+
+    SAE.fit(train_x, train_x,
+            epochs=args.epochs,
+            batch_size=args.batchsize,
+            shuffle=True,validation_data=(test_x,test_x))
+   
     Predict(SAE, encoder, test_x)
 
 
